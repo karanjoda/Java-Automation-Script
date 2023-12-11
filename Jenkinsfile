@@ -18,6 +18,14 @@ pipeline {
                     // List the contents of the directory
                     sh 'ls -la'
 
+                    
+                }
+            }
+        }
+
+        stage('Sonar Analysis') {
+            steps {
+                script {
                     //RUNNING scanner 
                     sh 'docker run \
     --rm \
@@ -26,19 +34,6 @@ pipeline {
     -e SONAR_TOKEN="sqp_20c80fd1cda6355573b8ec4647ec10db35ae11d8" \
     -v "PWDD:/usr/src" \
     sonarsource/sonar-scanner-cli -X'
-                }
-            }
-        }
-
-        stage('Sonar Analysis') {
-            steps {
-                script {
-                    withSonarQubeEnv(sonarqube-scanner) {
-                        sh "${SONARSCANNER_HOME}/bin/sonar-scanner \
-                            -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
-                            -Dsonar.host.url=${SONAR_HOST_URL} \
-                            -Dsonar.login=${SONAR_TOKEN} \
-                            .:/usr/src"
                     }
                 }
             }
