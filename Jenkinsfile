@@ -10,6 +10,18 @@ pipeline {
     }
 
     stages {
+        stage('Print Working Directory and List Contents') {
+            steps {
+                script {
+                    // Print the current working directory
+                    sh 'pwd'
+
+                    // List the contents of the directory
+                    sh 'ls -la'
+                }
+            }
+        }
+
         stage('Sonar Analysis') {
             steps {
                 script {
@@ -18,7 +30,7 @@ pipeline {
                             -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
                             -Dsonar.host.url=${SONAR_HOST_URL} \
                             -Dsonar.login=${SONAR_TOKEN} \
-                            /home/stl/Desktop/cloud/cloud_frontend:/usr/src"
+                            .:/usr/src"
                     }
                 }
             }
