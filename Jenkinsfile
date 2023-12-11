@@ -17,6 +17,15 @@ pipeline {
 
                     // List the contents of the directory
                     sh 'ls -la'
+
+                    //RUNNING scanner 
+                    sh 'docker run \
+    --rm \
+    -e SONAR_HOST_URL="http://172.31.11.103:9000" \
+    -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=cloud" \
+    -e SONAR_TOKEN="sqp_20c80fd1cda6355573b8ec4647ec10db35ae11d8" \
+    -v ".:/usr/src" \
+    sonarsource/sonar-scanner-cli -X'
                 }
             }
         }
