@@ -3,9 +3,9 @@ pipeline {
 
     environment {
         PWDD = sh(script: 'pwd', returnStdout: true).trim()
-        SONAR_PROJECT_KEY = 'firewall_analyser'
+        SONAR_PROJECT_KEY = 'Testing'
         SONAR_HOST_URL = 'http://172.31.11.103:9000'
-        SONAR_TOKEN = 'sqp_67c88b50b568e4c114927070d6a82c155c5cb62d'
+        SONAR_TOKEN = 'sqp_8217559e9719075a36d7d610a54690bbc19543f1'
     }
 
     stages {
