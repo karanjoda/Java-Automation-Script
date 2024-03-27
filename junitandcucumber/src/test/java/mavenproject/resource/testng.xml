@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="addnewcustomer">
+    <test name="addnewcustomer">
+        <listeners>
+            <!-- <listener class-name="mavenproject.common.RetryListener"/> Corrected the class name -->
+            <!-- <listener class-name="mavenproject.common.Listeners"/> Corrected the class name -->
+            <listener class-name="org.uncommons.reportng.HTMLReporter"/> Corrected the class name
+
+
+        </listeners>
+        <classes>
+            <class name="mavenproject.TestRunner.Run"/>
+            <!-- <class name="mavenproject.UI.ListernerDemoTest"/> -->
+            <!-- <class name="mavenproject.UI.ReportsTest"/> -->
+                <!-- <class name="mavenproject.UI.Seleniumlogin"/> -->
+
+        </classes>
+    </test>
+</suite>
