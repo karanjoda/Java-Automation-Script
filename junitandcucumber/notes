@@ -1,0 +1,1 @@
+npx cucumber-js Loginfeature.feature --dry-run //generate  stepdefinition
